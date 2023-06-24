@@ -2,6 +2,7 @@ import { useState } from "react"
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 import { v4 } from "uuid";
+import classes from './todo.module.css'
 
 type Todo = {
     id: string,
@@ -14,7 +15,7 @@ function TodoList() {
     return (
         <>
             <AddTodo addTodo={todo => setTodos([...todos, { text: todo, id: v4() }])}/>
-            <ul>
+            <ul className={classes.list}>
                 { todoList }
             </ul>
         </>
