@@ -15,14 +15,13 @@ import { v4 } from "uuid";
 
 export function useTodos() {
     const [todos, setTodos] = useState<Todo[]>([]);
-    const [selectedTodoId, setSelectedTodoId] = useState<string | null>(null);
     const [editingId, setEditingId] = useState<string | null>(null);
     // const { getColors } = useColors();
 
-    function addTodo(text: string, link?: string) {
+    function addTodo(text: string, link?: string): string {
         const id = v4();
         setTodos([...todos, { text, id, link }]);
-        setSelectedTodoId(id);
+        return id;
     }
 
     /**
@@ -31,7 +30,7 @@ export function useTodos() {
     async function populateTodo() {
         const res = await fetch(`https://www.boredapi.com/api/activity`);
         const { activity, link } = await res.json();
-        addTodo(activity, link.length ? link : undefined);
+        return addTodo(activity, link.length ? link : undefined);
     }
 
     function startEdit(id: string) {
@@ -39,7 +38,6 @@ export function useTodos() {
     }
 
     function endEdit(id: string, newText?: string) {
-        console.log('END', newText)
         if (newText?.length) {
             const todoId = todos.findIndex(todo => todo.id === id);
             const newTodos = [...todos];
@@ -53,9 +51,6 @@ export function useTodos() {
     }
 
     function removeTodo(id: string) {
-        if (selectedTodoId === id) {
-            setSelectedTodoId(null);
-        }
         setTodos(todos.filter(todo => todo.id !== id))
     }
 

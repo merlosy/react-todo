@@ -1,3 +1,7 @@
+.list {
+    padding-left: 0;
+}
+
 .list > li {
     list-style: none;
     text-align: left;
@@ -26,4 +30,8 @@
 
 .todoitem > span {
     flex: 1 1 auto;
+}
+
+.details {
+    padding: 0 24px;
 }

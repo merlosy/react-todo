@@ -12,15 +12,20 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --primary: #646cff;
+  --primary-hover: #535bf2;
+  --secondary: #1a1a1a;
+  --secondary-hover: #282828;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--primary);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--primary-hover);
 }
 
 body {
@@ -43,16 +48,28 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--secondary);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
+  background-color: var(--secondary-hover);
   border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 0;
+  outline: none;
+  background-color: var(--secondary);
+  border: none;
+}
+.btn:hover {
+  background-color: var(--secondary-hover);
 }
 
 @media (prefers-color-scheme: light) {
