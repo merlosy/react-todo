@@ -1,4 +1,4 @@
-# react-todo
+# The pointless todo app
 
 Built with
 

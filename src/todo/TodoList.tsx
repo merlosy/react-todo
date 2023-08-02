@@ -1,20 +1,23 @@
-import { useState } from "react"
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
-import { v4 } from "uuid";
 import classes from './todo.module.css'
-
-type Todo = {
-    id: string,
-    text: string
-}
+import { useTodos } from "./useTodos";
 
 function TodoList() {
-    const [todos, setTodos] = useState<Todo[]>([]);
-    const todoList = todos.map(todo => <li key={todo.id}><TodoItem text={todo.text} /></li>)
+    const {
+        todos, editingId, addTodo, populateTodo, removeTodo, startEdit, endEdit
+    } = useTodos();
+
+    const todoList = todos.map(todo => <li key={todo.id}>
+        <TodoItem todo={todo}
+            isEditing={todo.id === editingId}
+            deleteClicked={removeTodo}
+            toggleEdit={(id, val) => id === editingId ? endEdit(id, val) : startEdit(id)} />
+        </li>)
     return (
         <>
-            <AddTodo addTodo={todo => setTodos([...todos, { text: todo, id: v4() }])}/>
+            <button onClick={populateTodo}>Populate</button>
+            <AddTodo addTodo={addTodo}/>
             <ul className={classes.list}>
                 { todoList }
             </ul>

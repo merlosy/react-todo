@@ -9,7 +9,7 @@ function App() {
     <>
       <h1>Let's make some todos</h1>
       <TodoList />
-      <div>
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -20,7 +20,7 @@ function App() {
       <h2>Vite + React</h2>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   )
 }

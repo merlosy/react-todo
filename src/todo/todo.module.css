@@ -7,3 +7,23 @@
 .list > li:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+.todoitem {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.todoitem > form {
+    display: flex;
+    gap: 8px;
+    flex: 1 1 auto;
+}
+
+.todoitem > form > input {
+    width: 100%;
+}
+
+.todoitem > span {
+    flex: 1 1 auto;
+}
