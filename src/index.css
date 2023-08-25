@@ -1,3 +1,5 @@
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,6 +15,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
+  --success: #01ac01;
+  --pending: #b4b3e2;
   --primary: #646cff;
   --primary-hover: #535bf2;
   --secondary: #1a1a1a;
